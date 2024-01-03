@@ -28,11 +28,12 @@ public class PlayerControllerYoutube : MonoBehaviour
     public float moveSpeed = 5.0f;
     private Vector3 targetPosition;
     public LayerMask groundLayer;
-
+    
     void Start()
     {
         targetPosition = transform.position;
     }
+    
 
     void Update()
     {
@@ -40,7 +41,6 @@ public class PlayerControllerYoutube : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
             {
                 targetPosition = hit.point;
