@@ -28,7 +28,7 @@ public class PlayerControllerYoutube : MonoBehaviour
     public float moveSpeed = 5.0f;
     private Vector3 targetPosition;
     public LayerMask groundLayer;
-    
+    public NavMeshAgent agent;
     void Start()
     {
         targetPosition = transform.position;
@@ -48,7 +48,8 @@ public class PlayerControllerYoutube : MonoBehaviour
             }
         }
 
-        float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        //float step = moveSpeed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        agent.SetDestination(targetPosition);
     }
 }
