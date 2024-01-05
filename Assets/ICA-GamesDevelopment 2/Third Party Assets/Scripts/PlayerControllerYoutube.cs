@@ -46,7 +46,9 @@ public class PlayerControllerYoutube : MonoBehaviour
                 targetPosition = hit.point;
                 targetPosition.y = transform.position.y;
             }
+            
         }
+        
 
         //float step = moveSpeed * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
