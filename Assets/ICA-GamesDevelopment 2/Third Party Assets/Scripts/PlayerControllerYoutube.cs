@@ -29,6 +29,7 @@ public class PlayerControllerYoutube : MonoBehaviour
     private Vector3 targetPosition;
     public LayerMask groundLayer;
     public NavMeshAgent agent;
+    public Animator animator;
     void Start()
     {
         targetPosition = transform.position;
@@ -45,6 +46,7 @@ public class PlayerControllerYoutube : MonoBehaviour
             {
                 targetPosition = hit.point;
                 targetPosition.y = transform.position.y;
+                //animator.SetBool("IsRunning", true);
             }
             
         }
@@ -53,5 +55,10 @@ public class PlayerControllerYoutube : MonoBehaviour
         //float step = moveSpeed * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
         agent.SetDestination(targetPosition);
+        animator.SetFloat("velocity", agent.velocity.magnitude);
+       /* if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            animator.SetBool("IsRunning", false);
+        }*/
     }
 }

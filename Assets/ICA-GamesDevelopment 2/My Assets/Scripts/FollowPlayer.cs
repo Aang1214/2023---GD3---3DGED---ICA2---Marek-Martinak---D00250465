@@ -4,29 +4,46 @@ using UnityEngine;
 using UnityEngine.AI;
 using GD;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class FollowPlayer : MonoBehaviour
 {
+    public AudioSource animalHappy;
+    public AudioSource animalMad;
     public bool food = false;
     public bool isFollowing = false;
+    //public bool isMad = true;
     public void OnTriggerEnter(Collider other)
     {
+        /*if (other.gameObject.tag == "Player" && isMad)
+        {
+            animalMad.Play();
+        }*/
         if (other.gameObject.tag == "Player" && food)
         {
             isFollowing = true;
-       
-            Debug.Log("Player has entered the trigger");
+            animalHappy.Play();
+            //isMad = false;
+            
+        }
+
+        else if (other.gameObject.tag == "Player" && !food)
+        {
+            isFollowing = false;
+            animalMad.Play();
         }
 
         if (other.gameObject.tag == "Fence")
         {
             isFollowing = false;
             food = false;
-           
-            Debug.Log("Player has entered the trigger");
+            GetComponent<BoxCollider>().enabled = false;
+            
         }
-    }
 
+
+    }
+    
     public void OnFoodPickUp()
     {
         food = true;

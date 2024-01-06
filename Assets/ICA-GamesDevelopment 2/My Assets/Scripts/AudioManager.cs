@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AudioSource ambient;
+    [SerializeField] private Slider slidermusic;
+
+    public AudioMixer audiomixer;
+    public void Set0()
     {
-        
+        ambient.mute = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeVolume()
     {
-        
+        AudioListener.volume = slidermusic.value;
     }
 }

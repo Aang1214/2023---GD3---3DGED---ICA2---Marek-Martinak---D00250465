@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 public class Dialog : MonoBehaviour
 {
+    public AudioSource mumbling;
     public GameObject dialogBox;
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
@@ -28,10 +30,12 @@ public class Dialog : MonoBehaviour
             if (textDisplay.text == sentences[index])
             {
                 NextLine();
+                
             }
             else
             {
                 StopAllCoroutines();
+                mumbling.Stop();
                 textDisplay.text = sentences[index];
             }
         }
@@ -56,6 +60,7 @@ public class Dialog : MonoBehaviour
     {
         foreach (char letter in sentences[index].ToCharArray())
         {
+            
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
 
@@ -68,6 +73,7 @@ public class Dialog : MonoBehaviour
         {
             index++;
             textDisplay.text = string.Empty;
+            mumbling.Play();
             StartCoroutine(TypeLine());
         }
         else
