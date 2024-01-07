@@ -324,8 +324,8 @@ MonoBehaviour:
   dialogBox: {fileID: 0}
   textDisplay: {fileID: 372110839}
   sentences:
-  - Tak to je jinej vesmir kundibadku
-  - No to teda burte
+  - 
+  - 
   typingSpeed: 0.1
   playercam: {fileID: 0}
 --- !u!4 &106304776 stripped
@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0c9a48710e1cc45aa1a211c1a8eef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Dostala jahodu kundibadku
+  description: got food
   Event: {fileID: 11400000, guid: df142ab7c7041ba43926c5cdebf65369, type: 2}
   Response:
     m_PersistentCalls:
@@ -3888,7 +3888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalHappy: {fileID: 1203177428}
   animalMad: {fileID: 1480878215}
-  food: 0
+  food: 1
   isFollowing: 0
 --- !u!4 &644685743 stripped
 Transform:
