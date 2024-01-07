@@ -3888,7 +3888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalHappy: {fileID: 1203177428}
   animalMad: {fileID: 1480878215}
-  food: 1
+  food: 0
   isFollowing: 0
 --- !u!4 &644685743 stripped
 Transform:
